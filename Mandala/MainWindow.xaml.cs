@@ -14,11 +14,14 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CefSharp;
 using CefSharp.Wpf;
+using System.Windows.Controls;
 
 namespace Mandala
 {
     public partial class MainWindow : Window
     {
+        string StateOfWindows = null;
+        
         ChromiumWebBrowser browser;
         public MainWindow()
         {
@@ -33,18 +36,11 @@ namespace Mandala
 
         }
 
-        private void btnGo_Click(object sender, RoutedEventArgs e)
+        private void btnHome_Click(object sender, RoutedEventArgs e)
         {
-            browser.LoadUrl(adressBar.Text);
+
         }
 
-        private void adressBar_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                browser.LoadUrl(adressBar.Text);
-            }
-        }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
@@ -55,5 +51,97 @@ namespace Mandala
         {
             browser.Forward();
         }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void btnResize_Click(object sender, RoutedEventArgs e)
+        {
+            ResizeWindow();
+        }
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void addressBar_KeyDown(object sender, KeyEventArgs e)
+        {
+            {
+                if (e.Key == Key.Enter)
+                {
+                    browser.LoadUrl(addressBar.Text);
+                }
+            }
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+
+        private void Window_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ResizeWindow();
+        }
+
+        private void ResizeWindow()
+        {
+            if (StateOfWindows == null || StateOfWindows == "Normal")
+            {
+                this.WindowState = WindowState.Maximized;
+                StateOfWindows = "Maximized";
+            }
+            else if (StateOfWindows == "Maximized")
+            {
+                this.WindowState = WindowState.Normal;
+                Height = 600;
+                Width = 920;
+                StateOfWindows = "Normal";
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //private void AddBrowser()
+        //{
+        //    //Getting resources folder path, so it would open Main Page at any PC. Developed by @Wolferado.
+        //    var mainPagePath = docPath + "Inferno_Main_Page.html";
+
+        //    browser = new ChromiumWebBrowser(mainPagePath);
+        //    browser.Dock = DockStyle.Fill;
+        //    browser.AddressChanged += Browser_AddressChanged;
+        //    browser.TitleChanged += Browser_TitleChanged;
+
+        //    InitializeHandlers();
+        //}
+
+        //private void AddBrowserTab()
+        //{
+        //    var newTabPage = new TabPage();
+        //    newTabPage.Text = "New Tab";
+        //    BrowserTabs.TabPages.Insert(BrowserTabs.TabPages.Count - 1, newTabPage);
+        //    AddBrowser();
+        //    newTabPage.Controls.Add(browser);
+        //}
     }
 }

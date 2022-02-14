@@ -1,25 +1,101 @@
-﻿<Window x:Class="Mandala.MainWindow"
+﻿<Window x:Name="Mandala" x:Class="Mandala.MainWindow"    
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mandala"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="0,30,0,0">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="127*"/>
-            <ColumnDefinition Width="73*"/>
-        </Grid.ColumnDefinitions>
-        <TabControl Margin="0,10,10,0" Grid.ColumnSpan="2">
-            <TabItem x:Name="tabItem1" Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-        </TabControl>
-        <Button x:Name="btnForward" Content="&gt;" HorizontalAlignment="Left" Margin="45,-28,0,0" VerticalAlignment="Top" Width="30" Height="30" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Click="btnForward_Click"/>
-        <Button x:Name="btnBack" Content="&lt;" HorizontalAlignment="Left" Margin="10,-28,0,0" VerticalAlignment="Top" Width="30" Height="30" FontWeight="Bold" FontSize="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Click="btnBack_Click"/>
-        <TextBox x:Name="adressBar" HorizontalAlignment="Left" Margin="80,-28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" Height="30" FontWeight="Normal" VerticalContentAlignment="Top" FontSize="18" KeyDown="adressBar_KeyDown"/>
-        <Button x:Name="btnGo" HorizontalAlignment="Left" Margin="485,-28,0,0" VerticalAlignment="Top" Height="30" Width="30" Grid.ColumnSpan="2" Content="Go" VerticalContentAlignment="Center" FontWeight="Bold" Click="btnGo_Click"/>
+        Height="600" Width="920"
+        Background="Transparent" IsHitTestVisible="True"
+        WindowStyle="None"
+        MouseDown="Window_MouseDown"
+        MouseDoubleClick="Window_MouseDoubleClick">
 
-    </Grid>
+    <Border Background="#272527">
+        <Grid>
+
+            <TextBlock Text="Mandala"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Center"
+                       Foreground="White"
+                       FontSize="30"
+                       Height="48" Width="120"
+                       Margin="50,50,0,0"/>
+
+            <RadioButton x:Name="btnHome"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         Style="{StaticResource MenuButtonTheme}"
+                         Height="30" Width="30"
+                         Content="&#x2302;"
+                         FontSize="25"
+                         Margin="10,10,0,0"
+                         Click="btnHome_Click"/>
+            
+            <RadioButton x:Name="btnForward"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         Style="{StaticResource MenuButtonTheme}"
+                         Height="30" Width="30"
+                         Content="&gt;"
+                         FontSize="25"    
+                         Margin="70,10,0,0"
+                         Click="btnForward_Click"/>
+
+            <RadioButton x:Name="btnBack"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         Style="{StaticResource MenuButtonTheme}"
+                         Height="30" Width="30"
+                         Content="&lt;"
+                         FontSize="25"
+                         Margin="40,10,0,0"
+                         Click="btnBack_Click"/>
+
+            <TextBox Height="30"
+                     Style="{StaticResource ModernTextBox}"
+                     x:Name="addressBar"
+                     VerticalAlignment="Top"
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Left"
+                     Margin="100,10,105,0"
+                     KeyDown="addressBar_KeyDown"/>
+            
+            <RadioButton x:Name="btnMinimize"
+                         HorizontalAlignment="Right"
+                         VerticalAlignment="Top"
+                         Style="{StaticResource MenuButtonTheme}"
+                         Height="30" Width="30"
+                         Content="&#128469;"
+                         FontSize="25"
+                         Margin="0,10,70,0"
+                         Click="btnMinimize_Click"/>
+            
+            <RadioButton x:Name="btnReize"
+                         HorizontalAlignment="Right"
+                         VerticalAlignment="Top"
+                         Style="{StaticResource MenuButtonTheme}"
+                         Height="30" Width="30"
+                         Content="&#11036;"
+                         FontSize="30"
+                         Margin="0,10,40,0"
+                         Click="btnResize_Click"/>
+            
+            <RadioButton x:Name="btnClose"
+                         HorizontalAlignment="Right"
+                         VerticalAlignment="Top"
+                         Style="{StaticResource MenuButtonTheme}"
+                         Height="30" Width="30"
+                         Content="&#10005;"
+                         FontSize="25"
+                         Margin="0,10,10,0"
+                         Click="btnClose_Click"/>
+            
+            <TabControl Margin="0,80,0,0" Grid.Row="1">
+                <TabItem x:Name="tabItem1" Header="1312312">
+                    <Grid Background="#FFE5E5E5"/>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </Border>
 </Window>
