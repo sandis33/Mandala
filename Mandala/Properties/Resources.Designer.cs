@@ -59,15 +59,5 @@ namespace Mandala.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] mandalaHomeScreen {
-            get {
-                object obj = ResourceManager.GetObject("mandalaHomeScreen", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }

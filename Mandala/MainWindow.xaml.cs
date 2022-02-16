@@ -21,8 +21,9 @@ namespace Mandala
     public partial class MainWindow : Window
     {
         string StateOfWindows = null;
-        
+
         ChromiumWebBrowser browser;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,15 +31,16 @@ namespace Mandala
         }
         public void InitializeBrowser()
         {
-            browser = new ChromiumWebBrowser();
-            browser.LoadUrl("https://google.com");
-            tabItem1.Content = browser;
+            //Cef.Initialize(new CefSettings());
+            //browser = new ChromiumWebBrowser();
 
+            //browser.LoadUrl("https://google.com");
+            //tabItem1.Content = browser;
         }
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
-
+            HomePage.Visibility = Visibility.Visible;
         }
 
 
@@ -50,6 +52,7 @@ namespace Mandala
         private void btnForward_Click(object sender, RoutedEventArgs e)
         {
             browser.Forward();
+            HomePage.Visibility = Visibility.Hidden;
         }
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
@@ -101,47 +104,6 @@ namespace Mandala
                 StateOfWindows = "Normal";
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //private void AddBrowser()
-        //{
-        //    //Getting resources folder path, so it would open Main Page at any PC. Developed by @Wolferado.
-        //    var mainPagePath = docPath + "Inferno_Main_Page.html";
-
-        //    browser = new ChromiumWebBrowser(mainPagePath);
-        //    browser.Dock = DockStyle.Fill;
-        //    browser.AddressChanged += Browser_AddressChanged;
-        //    browser.TitleChanged += Browser_TitleChanged;
-
-        //    InitializeHandlers();
-        //}
-
-        //private void AddBrowserTab()
-        //{
-        //    var newTabPage = new TabPage();
-        //    newTabPage.Text = "New Tab";
-        //    BrowserTabs.TabPages.Insert(BrowserTabs.TabPages.Count - 1, newTabPage);
-        //    AddBrowser();
-        //    newTabPage.Controls.Add(browser);
-        //}
     }
+
 }

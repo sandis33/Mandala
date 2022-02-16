@@ -9,15 +9,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\Festive-Regular.ttf" />
+    <None Remove="Images\HomeScreen2.jpg" />
+    <None Remove="Images\HomeScreen3.jpg" />
+    <None Remove="Images\HomeScreen4.jpg" />
+    <None Remove="Images\mandalaHomeScreen.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CefSharp.Wpf.NETCore" Version="97.1.61" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Fonts\" />
-    <Folder Include="Images\" />
-    <Folder Include="MVVM\Model\" />
-    <Folder Include="MVVM\ViewModel\" />
-    <Folder Include="MVVM\View\" />
+    <Resource Include="Fonts\Festive-Regular.ttf" />
+    <Resource Include="Images\HomeScreen2.jpg" />
+    <Resource Include="Images\HomeScreen3.jpg" />
+    <Resource Include="Images\HomeScreen4.jpg" />
+    <Resource Include="Images\mandalaHomeScreen.jpg" />
   </ItemGroup>
 
   <ItemGroup>

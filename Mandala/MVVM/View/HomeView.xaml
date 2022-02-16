@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Mandala.MVVM.View.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Mandala.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="67*"/>
+            <RowDefinition Height="139*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="208*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="278*"/>
+            <ColumnDefinition Width="74*"/>
+            <ColumnDefinition Width="90*"/>
+            <ColumnDefinition Width="73*"/>
+            <ColumnDefinition Width="285*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/HomeScreen4.jpg">
+
+            </ImageBrush>
+        </Grid.Background>
+
+        <Viewbox Grid.Column="3"    
+                 Grid.Row="1"
+                 VerticalAlignment="Top"
+                 Stretch="Uniform">
+            <TextBlock Text="Mandala"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left"
+                   Foreground="#cfcfcf"
+                   FontSize="27"
+                   FontFamily="/Fonts/#Festive"
+                   Height="31"/>
+         </Viewbox>
+
+        <TextBox
+                 Style="{StaticResource ModernSearchBar}"
+                 x:Name="searchBar"
+                 VerticalContentAlignment="Center"
+                 HorizontalContentAlignment="Left" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="3"/>
+
+    </Grid>
+</UserControl>
