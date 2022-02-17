@@ -31,11 +31,11 @@ namespace Mandala
         }
         public void InitializeBrowser()
         {
-            //Cef.Initialize(new CefSettings());
-            //browser = new ChromiumWebBrowser();
+            Cef.Initialize(new CefSettings());
+            browser = new ChromiumWebBrowser();
 
-            //browser.LoadUrl("https://google.com");
-            //tabItem1.Content = browser;
+            browser.LoadUrl("");
+            tabItem1.Content = browser;
         }
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
@@ -53,6 +53,10 @@ namespace Mandala
         {
             browser.Forward();
             HomePage.Visibility = Visibility.Hidden;
+        }
+        private void btnAddTab_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
@@ -75,6 +79,7 @@ namespace Mandala
                 if (e.Key == Key.Enter)
                 {
                     browser.LoadUrl(addressBar.Text);
+                    HomePage.Visibility = Visibility.Collapsed;
                 }
             }
         }
@@ -104,6 +109,7 @@ namespace Mandala
                 StateOfWindows = "Normal";
             }
         }
+
     }
 
 }
